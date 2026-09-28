@@ -1,0 +1,17 @@
+# C derleme dosyalari
+*.o
+*.obj
+*.out
+*.exe
+*.app
+
+# .NET & C# dosyalari
+bin/
+obj/
+*.user
+*.suo
+
+# IDE & Sistem
+.DS_Store
+.idea/
+.vscode/
