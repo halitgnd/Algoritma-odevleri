@@ -1,3 +1,8 @@
+/* Soru2:
+    Kullanıcıdan bir tam sayı alın ve bu sayının bir Palindrom Sayı olup olmadığını bulan C
+programını yazın.
+ */
+
 #include <stdio.h>
 
 int main() {

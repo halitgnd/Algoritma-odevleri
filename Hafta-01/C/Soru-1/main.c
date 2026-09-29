@@ -1,5 +1,8 @@
+/* Soru1:
+  C programlama dilinde 10 elemanlı bir tamsayı dizisi tanımlayınız. Kullanıcıdan dizinin 10
+elemanını alınız ve daha sonra bu elemanları ekrana yazdırınız.
+*/
 #include <stdio.h>
-
 int main() {
   int i;
   int sayi_dizisi[10];
