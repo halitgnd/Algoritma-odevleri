@@ -1,0 +1,8 @@
+//
+// Created by Apple on 2.10.2026.
+//
+
+#ifndef ALGORITMA_ODEVLERI_CLEAR_H
+#define ALGORITMA_ODEVLERI_CLEAR_H
+
+#endif //ALGORITMA_ODEVLERI_CLEAR_H
