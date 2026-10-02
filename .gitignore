@@ -16,3 +16,6 @@ obj/
 .idea/
 .vscode/
 main
+*.dSYM/
+calistir
+main
