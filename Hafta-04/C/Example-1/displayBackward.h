@@ -1,0 +1,5 @@
+#ifndef ALGORITMA_ODEVLERI_DISPLAYBACKWARD_H
+#define ALGORITMA_ODEVLERI_DISPLAYBACKWARD_H
+#include "StudentNode.h"
+void displayBackward(const Node* head);
+#endif //ALGORITMA_ODEVLERI_DISPLAYBACKWARD_H

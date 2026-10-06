@@ -1,0 +1,5 @@
+#ifndef ALGORITMA_ODEVLERI_DISPLAYFORWARD_H
+#define ALGORITMA_ODEVLERI_DISPLAYFORWARD_H
+#include "StudentNode.h"
+void displayForward(const Node* head);
+#endif //ALGORITMA_ODEVLERI_DISPLAYFORWARD_H
