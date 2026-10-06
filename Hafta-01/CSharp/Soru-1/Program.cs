@@ -1,4 +1,4 @@
-﻿namespace Soru_1;
+﻿namespace Hafta1.Soru_1;
 class Program
 {
     static void Main()
