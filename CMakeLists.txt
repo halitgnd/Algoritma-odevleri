@@ -23,6 +23,10 @@ add_executable(Hadta03_Soru1
         Hafta-04/C/Soru-1/Song.h
         Hafta-04/C/Soru-1/removeSong.h
         Hafta-04/C/Soru-1/removeSong.c
+        "Hafta-05/C/Example-1/main.c"
+        Hafta-05/C/bubleSort/main.c
+        Hafta-05/C/Hospital/Main.c
+        Hafta-05/C/Hospital/SickNode.h
 )
 add_executable(Hafta03_Soru2
         Hafta-03/C/Soru-2/main.c
@@ -40,4 +44,7 @@ add_executable(Hafta04_Soru1
         Hafta-04/C/Soru-1/playPrevious.c
         Hafta-04/C/Soru-1/displayPlayList.c
 
+)
+add_executable(Hafta05_Example1
+        Hafta-05/C/Example-1/main.c
 )
