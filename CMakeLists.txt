@@ -2,57 +2,30 @@ cmake_minimum_required(VERSION 3.20)
 project(Algoritma_odevleri C)
 
 set(CMAKE_C_STANDARD 11)
+set(CMAKE_C_STANDARD_REQUIRED ON)
 
-add_executable(Hafta04_Example1
-        Hafta-04/C/Example-1/main.c
-        Hafta-04/C/Example-1/insertOrdered.c
-        Hafta-04/C/Example-1/displayForward.c
-        Hafta-04/C/Example-1/displayBackward.c
-        Hafta-04/C/Example-1/ClearList.c
-)
-add_executable(Hadta03_Soru1
-        Hafta-03/C/Soru-1/main.c
-        Hafta-03/C/Soru-1/addOrder.c
-        Hafta-03/C/Soru-1/Clear.c
-        Hafta-03/C/Soru-1/Count.c
-        Hafta-03/C/Soru-1/printList.c
-        Hafta-03/C/Soru-1/removeNode.c
-        Hafta-03/C/Soru-1/sumList.c
-        Hafta-04/C/Soru-1/addSongToEnd.h
-        Hafta-04/C/Soru-1/addSongToEnd.c
-        Hafta-04/C/Soru-1/Song.h
-        Hafta-04/C/Soru-1/removeSong.h
-        Hafta-04/C/Soru-1/removeSong.c
-        "Hafta-05/C/Example-1/main.c"
-        Hafta-05/C/bubleSort/main.c
-        Hafta-05/C/Hospital/Main.c
-        Hafta-05/C/Hospital/SickNode.h
-        Hafta-05/C/Hospital/SickNode.c
-)
-add_executable(Hafta03_Soru2
-        Hafta-03/C/Soru-2/main.c
-        Hafta-03/C/Soru-2/Count.c
-        Hafta-03/C/Soru-2/deleteAt.c
-        Hafta-03/C/Soru-2/insertAt.c
-        Hafta-03/C/Soru-2/printList.c
-        Hafta-03/C/Soru-2/Clear.c
+# Her main.c dosyasını, bulunduğu klasördeki yardımcı C dosyalarıyla
+# birlikte ayrı bir çalıştırılabilir hedef olarak oluştur.
+file(GLOB_RECURSE MAIN_FILES CONFIGURE_DEPENDS
+        "${CMAKE_CURRENT_SOURCE_DIR}/Hafta-*/main.c"
 )
 
-#add_executable(Hafta04_Soru1
- #       Hafta-04/C/Soru-1/main.c
-  #      Hafta-04/C/Soru-1/addSongToEnd.c
-   #     Hafta-04/C/Soru-1/removeSong.c
-    #    Hafta-04/C/Soru-1/playNext.c
-     #   Hafta-04/C/Soru-1/playPrevious.c
-      #  Hafta-04/C/Soru-1/displayPlayList.c
+foreach(MAIN_FILE IN LISTS MAIN_FILES)
+    file(STRINGS "${MAIN_FILE}" MAIN_FUNCTION_LINES
+            REGEX "^[ \t]*(int|void)[ \t]+main[ \t]*\\(")
+    if(NOT MAIN_FUNCTION_LINES)
+        message(WARNING "main.c içinde main fonksiyonu bulunamadı, atlanıyor: ${MAIN_FILE}")
+        continue()
+    endif()
 
-#)
+    get_filename_component(MAIN_DIR "${MAIN_FILE}" DIRECTORY)
+    file(GLOB SOURCE_FILES CONFIGURE_DEPENDS "${MAIN_DIR}/*.c")
 
-add_executable(Hafta05_Example1
-        Hafta-05/C/Example-1/main.c
-)
-add_executable(Hospital
-        Hafta-05/C/Hospital/main.c
-        Hafta-05/C/Hospital/SickNode.c
-        Hafta-05/C/Hospital/SickNode.h
-)
+    file(RELATIVE_PATH TARGET_PATH "${CMAKE_CURRENT_SOURCE_DIR}" "${MAIN_DIR}")
+    string(REPLACE "/" "_" TARGET_NAME "${TARGET_PATH}")
+    string(REPLACE "-" "_" TARGET_NAME "${TARGET_NAME}")
+    string(REPLACE " " "_" TARGET_NAME "${TARGET_NAME}")
+
+    add_executable("${TARGET_NAME}" ${SOURCE_FILES}
+            Hafta-06/C/Soru-1/main.c)
+endforeach()
